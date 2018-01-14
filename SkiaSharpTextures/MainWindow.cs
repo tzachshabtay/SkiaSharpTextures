@@ -269,12 +269,19 @@ namespace SkiaSharpTextures
 
         private void DrawDirect()
         {
+            CheckErrors();
             GL.MatrixMode(MatrixMode.Projection);
+            CheckErrors();
             GL.LoadIdentity();
+            CheckErrors();
             GL.Ortho(0, 1200, 0, 800, -1, 1);
+            CheckErrors();
             GL.MatrixMode(MatrixMode.Modelview);
+            CheckErrors();
             GL.LoadIdentity();
+            CheckErrors();
             GL.UseProgram(shaderProgram);
+            CheckErrors();
 
             _quad[0] = new GLVertex(new Vector2(500,200), _bottomLeft, SKColors.Blue);
             _quad[1] = new GLVertex(new Vector2(900,200), _bottomRight, SKColors.Blue);
